@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<script>
+			function sayHello() {
+				var name = document.getElementById("name").value;
+				var content = document.getElementById("content");
+				content.innerHTML = 'Hello ' + name;
+			}
+		</script>
+
+		<style>
+			#content {
+				border: 1px solid #ccc;
+				width: 200px;
+				min-height: 20px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<p>Enter your name: 
+			<input id="name" type="text" >
+			<button onclick="sayHello()">Greet me</button>
+		</p>
+		<div id="content"><div>
+	</body>
+</html>

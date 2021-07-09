@@ -45,7 +45,6 @@ public class CCUtilsServiceImpl implements CCUtilsService {
                 .map( it -> it.getCountry().toLowerCase())
                 .filter( it -> it.trim().length() > 0)
                 .collect(Collectors.toSet());
-        System.out.println(uniqueCountries);
         return new ArrayList<>(uniqueCountries);
     };
 }

@@ -6,6 +6,12 @@
 				var content = document.getElementById("content");
 				content.innerHTML = 'Hello ' + name;
 			}
+			const sayHello2 = () => {
+				const name = document.getElementById("name").value;
+				const content = document.getElementById("content");
+				content.innerHTML = `Hello ${name}`;
+			}
+
 		</script>
 
 		<style>
@@ -21,7 +27,7 @@
 	<body>
 		<p>Enter your name: 
 			<input id="name" type="text" >
-			<button onclick="sayHello()">Greet me</button>
+			<button onclick="sayHello2()">Greet me</button>
 		</p>
 		<div id="content"><div>
 	</body>

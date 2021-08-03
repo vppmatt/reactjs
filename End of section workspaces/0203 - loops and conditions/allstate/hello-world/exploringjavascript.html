@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--
+    this is a comment
+    -->
+
+    <style>
+        #firstDiv {
+            /*
+            this is a comment
+             */
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+        .secondDiv {
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            width: 200px;
+            min-height: 20px;
+        }
+    </style>
+
+    <script>
+        function sayHello() {
+            var name = document.getElementById("name").value;
+            document.getElementById("greeting").innerHTML ="Hello " +name;
+        }
+
+        const sayHello2 = () => {
+            let first = 1;
+            const second = "1";
+            console.log(first == second);
+            console.log(first === second);
+            first = 2;
+
+            var name = document.getElementById("name").value;
+            document.getElementById("greeting").innerHTML =`Hello ${name}`;
+
+            const customer = {id:1, name: "Matt", age:21};
+            const numbers = [1,2,3,4,5];
+
+            const [var1, var2] = [3,7];
+
+
+            const newnumbers = [0, ...numbers];
+            console.log(newnumbers);
+            const customer2 = {...customer, favorite_color: "blue", id:2};
+            console.log(customer2);
+        };
+
+    </script>
+
+</head>
+<body>
+<p>
+    Enter your name: <input type="text" id="name" >
+    <button id="greetme-button" onclick="sayHello2()" type="button" >Greet me</button>
+</p>
+
+<div id="firstDiv">
+    You entered the <span  style="color:#f00;" >following</span>:
+</div>
+
+<div id="greeting" class="secondDiv">
+
+</div>
+
+</body>
+</html>

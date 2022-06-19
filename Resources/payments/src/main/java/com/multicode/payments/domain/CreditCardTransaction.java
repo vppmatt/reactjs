@@ -1,27 +1,19 @@
 package com.multicode.payments.domain;
 
-import javax.persistence.*;
 import java.sql.*;
 
-@Entity
-@Table(name = "cctransactions")
 public class CreditCardTransaction {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Double amount;
     private String country;
     private String currency;
     private Date date;
 
-    @Column(name = "order_id")
     private String orderId;
 
-    @Column(name = "tax_code")
     private Integer taxCode;
 
-    @Column(name = "tax_rate")
     private Double taxRate;
     private String type;
 

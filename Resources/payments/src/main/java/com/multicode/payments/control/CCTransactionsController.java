@@ -18,7 +18,7 @@ public class CCTransactionsController {
     @Autowired
     CCUtilsService service;
 
-    @GetMapping(produces={MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(produces={MediaType.APPLICATION_JSON_VALUE})
     public Object mappingFunctionForGetAllAndSearch(
             @RequestParam(value ="order", required = false) String orderId,
             @RequestParam(value ="country", required = false) String country) {

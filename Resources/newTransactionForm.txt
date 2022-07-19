@@ -9,7 +9,7 @@
       <label htmlFor="country">Country</label>
       <input type="text"  id="country" />
       <br/>
-      <label htmlFor="currency">Amount</label>
+      <label htmlFor="currency">Currency</label>
       <input type="text"  id="currency" />
       <br/>
       <label htmlFor="amount">Amount</label>

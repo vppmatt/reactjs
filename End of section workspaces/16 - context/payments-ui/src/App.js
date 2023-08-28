@@ -14,10 +14,7 @@ function App() {
 
     const [user,setUser] = useState({id: 0, name : "", role : ""})
 
-    const login = (newUser) => {
-        //simulate getting a user from a remote source
-        setUser(newUser);
-    }
+    const login = setUser;
 
     const logout = () => {
         setUser({id: 0, name : "", role : ""});

@@ -3,6 +3,8 @@ import {useState, useEffect} from 'react';
 import {getAllPaymentsForCountry, getAllPaymentsForOrderId, getCountries} from '../../../data/DataFunctions';
 import TransactionTableRow from "./TransactionTableRow";
 import { useParams, useSearchParams} from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux";
+import {updateCountries} from "../../../store/store";
 
 const Transactions = (props) => {
 
@@ -17,16 +19,34 @@ const Transactions = (props) => {
 
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const loadCountries = () =>  {
-        getCountries()
-            .then(response => {
-                const allCountries = response.data;
-                setUniqueCountries(allCountries);
-                setCountryOptions(allCountries.map(c => <option key={c} value={c}>{c}</option>));
-            })
-            .catch(error => {
-                console.log("something went wrong", error);
-            });
+    // const loadCountries = () =>  {
+    //     getCountries()
+    //         .then(response => {
+    //             const allCountries = response.data;
+    //             setUniqueCountries(allCountries);
+    //             setCountryOptions(allCountries.map(c => <option key={c} value={c}>{c}</option>));
+    //         })
+    //         .catch(error => {
+    //             console.log("something went wrong", error);
+    //         });
+    // }
+
+    const reduxCountries = useSelector(state => state.countries.countries);
+    const dispatch = useDispatch();
+    const loadCountries = () => {
+        setLoading(reduxCountries.loading);
+        if (reduxCountries.data.length > 0) {
+            console.log("data obtained from redux store");
+            setUniqueCountries(reduxCountries.data);
+            setCountryOptions(reduxCountries.data.map(c => <option key={c} value={c}>{c}</option>));
+        }
+        else if (!reduxCountries.loading) {
+            console.log("no data in redux - requesting it now");
+            dispatch(updateCountries());
+        }
+        else {
+            console.log("redux is already getting the data - do nothing right now");
+        }
     }
 
     const loadTransactionsForSelectedCountry = () => {
@@ -80,7 +100,7 @@ const Transactions = (props) => {
             setPayments([]);
             loadCountries();
         }
-    }, [selectedOrder]);
+    }, [selectedOrder, reduxCountries]);
 
     const changeCountry = (e) => {
         const option = e.target.options.selectedIndex - 1;

@@ -4,7 +4,7 @@ import {BrowserRouter} from "react-router-dom";
 
 jest.mock('../../../data/DataFunctions', () => {
     return {
-        getCountries: () => Promise.resolve({data: {country: ['a', 'b', 'c']}})
+        getCountries: () => Promise.resolve({data: ['a', 'b', 'c']})
     };
 });
 
@@ -13,20 +13,7 @@ test('countries are displayed when loaded', async () => {
         <Transactions/>
     </BrowserRouter>);
 
-    const countrySelector = await screen.findByRole('combobox', {}, 5000);   //note could find by ID but this is a chance to use findByRole!
+    const countrySelector = await screen.findByRole('combobox', {}, 2000);   //note could find by ID but this is a chance to use findByRole!
     expect(countrySelector).toBeInTheDocument();
-
+    expect(countrySelector.options).toHaveLength(4);
 });
-
-test('all countries are displayed', async () => {
-
-    render(<BrowserRouter>
-        <Transactions/>
-    </BrowserRouter>);
-
-    const options = await screen.findAllByRole('option', {}, 2000);   //note could find by ID but this is a chance to use findByRole!
-
-    expect(options).toHaveLength(4);
-
-});
-

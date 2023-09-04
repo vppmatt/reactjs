@@ -1,7 +1,6 @@
 import './AddTransaction.css';
 import {useReducer, useState} from "react";
 import {addNewTransaction} from "../../data/DataFunctions";
-import CountrySelector from "../CountrySelector/countrySelector";
 
 const AddTransaction = () => {
 
@@ -42,10 +41,6 @@ const AddTransaction = () => {
         dispatch( {field : event.target.id, value : event.target.value});
     }
 
-    const handleChangeCountry = (country) => {
-        dispatch ({field: 'country', value : country});
-    }
-
     const {orderId, date,  amount , country, currency, taxCode, taxRate, type} = newTransaction;
 
     return (
@@ -57,7 +52,8 @@ const AddTransaction = () => {
             <label htmlFor="date">Date</label>
             <input type="date" id="date" value={date} onChange={handleChange} />
             <br/>
-            <CountrySelector id="country"  label="country" changeCountry={handleChangeCountry} />
+            <label htmlFor="country">Country</label>
+            <input type="text"  id="country" value={country} onChange={handleChange} />
             <br/>
             <label htmlFor="currency">Amount</label>
             <input type="text"  id="currency" value={currency} onChange={handleChange} />

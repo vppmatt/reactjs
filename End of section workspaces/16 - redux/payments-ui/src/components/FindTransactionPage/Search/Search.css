@@ -4,7 +4,7 @@
     font-size: 1.2em;
 }
 
-.searchBox label, input, button, select {
+.searchBox label, input, button {
     margin: 10px;
 }
 

@@ -11,13 +11,11 @@ describe.only('css applied correctly for search box validation', () => {
         expect(input).not.toHaveClass('searchBoxError');
     })
 
-    test('Invalid entry in input results in a search error', () => {
+    test('Invalid entry in input results in a search error', async () => {
         render(<Search/>);
 
         const input = screen.getByLabelText('Order Id:');
-        act(() => {
-            userEvent.type(input, '  ');
-        });
+        await userEvent.type(input, '  ');
         expect(input).toHaveClass('searchBoxError');
     })
 

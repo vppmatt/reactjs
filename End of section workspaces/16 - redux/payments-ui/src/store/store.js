@@ -1,5 +1,5 @@
 import {applyMiddleware, combineReducers, createAsyncThunk, createSlice, legacy_createStore} from "@reduxjs/toolkit";
-import thunk from "redux-thunk";
+import {thunk} from "redux-thunk";
 import {getCountries} from "../data/DataFunctions";
 
 const initialUserState = {

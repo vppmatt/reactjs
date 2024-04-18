@@ -1,10 +1,6 @@
 import axios from 'axios';
 
-let serverURL = "https://payments.multicode.uk";
-
-if (process.env.APP_SERVER_URL) {
-    serverURL = process.env.APP_SERVER_URL;
-}
+const serverURL = import.meta.env.VITE_SERVER_URL;
 
 
 export const getAllPaymentsForCountry = (country) => {

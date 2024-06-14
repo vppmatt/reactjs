@@ -19,7 +19,7 @@ export const getAllPayments = () => {
 
 export const getAllPaymentsFetchVersion = () => {
     console.log("fetching data using fetch");
-    const transactionsPromise = fetch("https://payments.multicode.uk/api/payment", {
+    const transactionsPromise = fetch("https://paymentsdemo.neueda.com/api/payment", {
         method: "GET",
         headers: new Headers({'Accept': 'application/json'})
     });
@@ -30,7 +30,7 @@ export const getAllPaymentsFetchVersion = () => {
 
 export const getAllPaymentsAxiosVersion = () => {
     console.log("fetching data using axios");
-    const transactionsPromise = axios({url : "https://payments.multicode.uk/api/payment", method: "GET", headers : {'Accept': 'application/json'} });
+    const transactionsPromise = axios({url : "https://paymentsdemo.neueda.com/api/payment", method: "GET", headers : {'Accept': 'application/json'} });
 
     return transactionsPromise;
 
